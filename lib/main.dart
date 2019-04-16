@@ -1,6 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:tflite/tflite.dart';
 
 void main() => runApp(MyApp());
 
@@ -39,7 +42,18 @@ class _MyHomePageState extends State<MyHomePage> {
   double _imageWidth;
   bool _busy = false;
 
-  // TODO: implement the predictImage function
+  // load the pre_trained model
+  Future loadModel() async {
+    Tflite.close();
+    try {
+      String res;
+      switch (_model) {
+        case yolo:
+          res = await Tflite.loadModel(model: 'assets/yolov2_tiny.tflite', labels: 'assets/yolov2_tiny.txt');
+          break;
+      }
+    } on PlatformException {}
+  }
 
   @override
   Widget build(BuildContext context) {
