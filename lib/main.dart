@@ -49,8 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
       String res;
       switch (_model) {
         case yolo:
-          res = await Tflite.loadModel(model: 'assets/yolov2_tiny.tflite', labels: 'assets/yolov2_tiny.txt');
+          res = await Tflite.loadModel(
+              model: 'assets/yolov2_tiny.tflite',
+              labels: 'assets/yolov2_tiny.txt');
           break;
+        case ssd:
+          res = await Tflite.loadModel(
+              model: 'assets/ssd_mobilenet.tflite',
+              labels: 'assets/ssd_mobilenet.txt');
       }
     } on PlatformException {}
   }
@@ -62,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body:
-      Center(), // This trailing comma makes auto-formatting nicer for build methods.
+          Center(), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
