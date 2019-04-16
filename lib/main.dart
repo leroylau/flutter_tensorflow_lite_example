@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  const String mobile = 'MobileNet';
+  const String ssd = 'SSD MobileNet';
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
