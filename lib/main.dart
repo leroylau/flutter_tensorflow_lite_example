@@ -1,15 +1,34 @@
-/*
- * Created Date: Tuesday, April 16th 2019, 4:43:27 pm
- * Author: LiuChang
- * -----
- * Last Modified: Tue Apr 16 2019
- * Modified By: LiuChang
- * -----
- * Copyright (c) 2019 LiuChang
- * 
- * MIT LICENSE.
- * -----
- * HISTORY:
- * Date      	By	Comments
- * ----------	---	----------------------------------------------------------
- */
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'tflite demo',
+      home: HomePage(title: 'tflite demo'),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  final String title;
+
+  const HomePage({Key key, this.title}) : super(key: key);
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+        elevation: 0.0,
+      ),
+    );
+  }
+}
